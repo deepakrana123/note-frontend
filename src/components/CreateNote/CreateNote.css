@@ -1,0 +1,163 @@
+.createContainer{
+    height:80vh;
+    width:80vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left:140px;
+}
+
+.forms123{
+    width:60rem;
+    height:37rem;
+    color:whitesmoke;
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgba(11, 15, 13, 0.582);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+}
+
+.createNoteheading >h2{
+    text-align: center;
+    font-size:40px;
+    font-weight:bold;  
+    margin-top:10px;
+    color:rgba(7, 163, 85, 0.582); 
+    text-transform: uppercase;
+}
+.createNoteMainContainer{
+    margin-top:20px;
+    margin-left:50px;
+}
+.createNote{
+    display:flex;
+    flex-direction: column;
+}
+
+.createNote input[type="text"]{
+    width: 90% !important;
+    height:20% !important;
+    margin: 10px 0px !important;
+    border-radius: 5px !important;
+    padding: 15px 18px !important;
+    box-sizing: border-box !important;
+
+}
+
+.createNote textarea{
+    width: 90%;
+    height:60%;
+    margin: 10px 0;
+    border-radius: 5px;
+    padding: 15px 18px;
+    box-sizing: border-box;
+    resize:none;
+    overflow:hidden;
+    outline:none;
+
+}
+
+.createNote label{
+    color:snow;
+    font-size:20px;
+    font-weight:bold;
+}
+
+.createNoteMainContainer button{
+    background-color: #030804;
+    color: white;
+    padding: 8px 20px;
+    border-radius: 5px;
+    margin: 7px 0;
+    width: 20%;
+    height:50px;
+    font-size: 18px;
+
+}
+.createNoteMainContainer button:hover{
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+
+/* .forms123{
+    width:65rem;
+    height:37rem;
+    color:whitesmoke;
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgba(11, 15, 13, 0.582);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+}
+.createNoteheading >h2{
+    text-align: center;
+    font-size:40px;
+    font-weight:bold;  
+    margin-top:10px;
+    color:black; 
+    text-transform: uppercase;
+}
+.createNoteMainContainer{
+    margin-top:20px;
+    margin-left:50px;
+}
+
+.inputText{
+    width: 70%;
+    height:20%;
+    margin: 10px 0;
+    border-radius: 5px;
+    padding: 15px 18px;
+    box-sizing: border-box;
+
+}
+
+textarea{
+    width: 80%;
+    height:60%;
+    margin: 10px 0;
+    border-radius: 5px;
+    padding: 15px 18px;
+    box-sizing: border-box;
+    resize:none;
+    overflow:hidden;
+    outline:none;
+
+}
+label{
+    color:black;
+    font-size:20px;
+    font-weight:bold;
+}
+.createNote{
+    display: flex;
+    flex-direction: column;
+}
+
+h2{
+    text-align: center;
+    font-size:40px;
+    font-weight:600;
+}
+
+ .buttons123 {
+    background-color: #030804;
+    color: white;
+    padding: 8px 20px;
+    border-radius: 5px;
+    margin: 7px 0;
+    width: 20%;
+    height:50px;
+    font-size: 18px;
+  }
+
+.buttons123:hover {
+    opacity: 0.6;
+    cursor: pointer;
+} 
+ */
+
+
+
