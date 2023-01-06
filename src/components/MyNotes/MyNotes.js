@@ -18,11 +18,11 @@ const MyNotes = () => {
     const { data } = await axios.get(`${Api}/note`, config);
       setNotes(data);
   };
-  useEffect(()=>{
+  // useEffect(()=>{
     if(userInfo){
       getData(userInfo)
     }
-  },[ userInfo]);
+  // },[ ]);
 
   const deleteNote = async (id) => {
    const config = {
