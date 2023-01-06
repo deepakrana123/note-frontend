@@ -20,7 +20,7 @@ const CreateNote = () => {
       },
     };
 
-    const data=axios.post(`${Api}/note/create`,{ title , category , content } , config )
+    const data = axios.post(`${Api}/note/create`,{ title , category , content } , config )
      if(data){
          navigate("/notes");
      }

@@ -19,9 +19,10 @@ const MyNotes = () => {
       setNotes(data);
   };
   useEffect(()=>{
-    getData()
+    getData();
 
-  },[notes]);
+  },[ notes ]);
+
   const deleteNote = async (id) => {
    const config = {
       headers: {

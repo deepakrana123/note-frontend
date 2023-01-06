@@ -1,1 +1,1 @@
-export const Api="http://localhost:2111/api"
+export const Api="https://note-app-61xq.onrender.com/api"

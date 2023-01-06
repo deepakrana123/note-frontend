@@ -17,7 +17,7 @@ const SignUp = () => {
     const [error , setError] = useState(null);
     const [loading , setLoading]=useState(false);
     const navigate=useNavigate() 
-  console.log(picMessage,error);   
+   console.log(error,picMessage,setPicMessage)
     const submitHandler = async(e)=>{
         e.preventDefault();
       // setLoading(true);
@@ -25,7 +25,6 @@ const SignUp = () => {
         setError("Password doesnot match")
       }
       if(email && password && pic && name){
-        console.log(email,password, pic , name ,"value")
        const config = {
                     headers: {
                         "Content-type": "application/json",
@@ -46,7 +45,6 @@ const SignUp = () => {
     }
   
     const postDetails = (pics) => {
-        console.log(pics,"pics")
         setLoading(true)
         if (
             pics ===
@@ -66,7 +64,6 @@ const SignUp = () => {
             })
                 .then((res) => res.json())
                 .then((data) => {
-                  console.log(data,"data")
                     setPic(data.url.toString());
                 })
                 .catch((err) => {

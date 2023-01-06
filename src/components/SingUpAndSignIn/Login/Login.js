@@ -3,7 +3,10 @@ import axios from "axios";
 import { Link, useNavigate } from 'react-router-dom';
 import "./Login.css"
 import {Api} from "../../Api.js";
+
+
 const Login = () => {
+  console.log(Api,"api")
   const [email , setEmail]=useState();
   const [password , setPassword] = useState();
   const navigate=useNavigate();
