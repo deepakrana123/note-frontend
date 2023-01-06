@@ -8,10 +8,10 @@ const MyNotes = () => {
   const [notes , setNotes] =useState("");
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
  
-  const  getData = async()=>{
+  const  getData = async(user)=>{
     const config = {
       headers: {
-        Authorization: `Bearer ${userInfo.token}`,
+        Authorization: `Bearer ${user.token}`,
       },
     };
 
@@ -19,9 +19,10 @@ const MyNotes = () => {
       setNotes(data);
   };
   useEffect(()=>{
-    getData();
-
-  },[ notes ]);
+    if(userInfo){
+      getData(userInfo)
+    }
+  },[ userInfo]);
 
   const deleteNote = async (id) => {
    const config = {
@@ -32,7 +33,7 @@ const MyNotes = () => {
 
     const {data} = await axios.delete(`http://localhost:2111/api/note/${id}`,config)
      if(data.message==="Note Removed"){
-              getData()
+              getData(userInfo)
      }
      else{
       alert(data.message)
