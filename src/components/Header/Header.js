@@ -5,12 +5,15 @@ import "./Header.css"
 const Header = () => {
   const navigate=useNavigate()
   const [term , setTerm]=useState("");
+  const [pic,setPic]=useState("https://icon-library.com/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jpg")
    const userInfo = JSON.parse(localStorage.getItem("userInfo"))
-  const user= userInfo.pic.startsWith("https")?userInfo.pic:"https://icon-library.com/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jpg"
-
+  
   function submitHandler(){
     localStorage.removeItem("userInfo")
     navigate("/login")
+  }
+  if(userInfo){
+    setPic(userInfo.pic)
   }
     return (
         <div className="header">
@@ -26,7 +29,7 @@ const Header = () => {
         </form>
       </div>
       <div className="user-logo">
-        <img src={user} alt={userInfo.name}/>
+        <img src={pic} alt={userInfo.name}/>
         <button   type ="submit" onClick={submitHandler}>Logout</button>
       </div>
       </div>
