@@ -1,16 +1,23 @@
 import React from "react";
-import "./Footer.css"
-
+// import "./Footer.css"
+import { Col, Container, Row } from "react-bootstrap";
 const Footer = () => {
   return (
-    <div className="footer">
-      <p>Note Zipper</p>
-      <div className="f">
-      <p>Copyright &copy;</p>
-      <p>2021</p>
-      </div>
-      
-      </div>
+    <footer
+      style={{
+        width: "100%",
+        position: "relative",
+        bottom: 0,
+        display: "flex",
+        justifyContent: "center",
+      }}
+    >
+      <Container>
+        <Row>
+          <Col className="text-center py-3">Copyright &copy; Note Zipper</Col>
+        </Row>
+      </Container>
+    </footer>
   );
 };
 

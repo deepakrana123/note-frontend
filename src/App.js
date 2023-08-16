@@ -17,14 +17,18 @@ function App() {
       <Router>
        <Header/>
        <Routes>
-        <Route exact path="" element={<Landing/>}/>
+
+       <Route  exact path="/register" element={<SignUp/>}/>
+       </Routes>
+       {/* <Routes> */}
+        {/* <Route exact path="" element={<Landing/>}/> */}
         {/* <Route  exact path="/login" element={<Login/>}/>
         <Route  exact path="/register" element={<SignUp/>}/>
         <Route  exact path="/notes" element={<MyNotes/>}/>
         <Route exact path ="/create" element={<CreateNote/>}/>
         <Route path="/edit/:id" element={<Edit/>}/> 
         <Route path="*" element={<PageNotFound/>}/> */}
-       </Routes>
+       {/* </Routes> */}
        <Footer/>
       </Router>
     </div>

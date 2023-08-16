@@ -9,14 +9,14 @@ const Header = () => {
   const [pic,setPic]=useState("https://icon-library.com/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jpg")
    const userInfo = JSON.parse(localStorage.getItem("userInfo"))
   
-  function submitHandler(){
-    localStorage.removeItem("userInfo")
-    navigate("/login")
-  }
-  if(userInfo){
-    setPic(userInfo.pic)
-    setName(userInfo.name)
-  }
+  // function submitHandler(){
+  //   localStorage.removeItem("userInfo")
+  //   navigate("/login")
+  // }
+  // if(userInfo){
+  //   setPic(userInfo.pic)
+  //   setName(userInfo.name)
+  // }
     return (
         <div className="header">
       <Link to="/">
@@ -25,14 +25,14 @@ const Header = () => {
         </div>
       </Link>
       <div className="search">
-        <form onSubmit={submitHandler}>
+        <form>
           <input type="text" value={term} className="search_input" placeholder="Search Your Notes" onChange={(e)=>setTerm(e.target.value)}/>
           <button type="submit" className="search_button"><i className="fa fa-search"></i></button>
         </form>
       </div>
       <div className="user-logo">
         <img src={pic} alt={name}/>
-        <button   type ="submit" onClick={submitHandler}>Logout</button>
+        <button   type ="submit" >Logout</button>
       </div>
       </div>
 
