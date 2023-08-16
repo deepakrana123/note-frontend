@@ -18,24 +18,15 @@ const Header = () => {
   //   setName(userInfo.name)
   // }
     return (
-        <div className="header">
-      <Link to="/">
-        <div className="logo">
-          NotesApp
-        </div>
-      </Link>
-      <div className="search">
-        <form>
-          <input type="text" value={term} className="search_input" placeholder="Search Your Notes" onChange={(e)=>setTerm(e.target.value)}/>
-          <button type="submit" className="search_button"><i className="fa fa-search"></i></button>
-        </form>
-      </div>
-      <div className="user-logo">
-        <img src={pic} alt={name}/>
-        <button   type ="submit" >Logout</button>
-      </div>
-      </div>
-
+    <header>
+    <div class="logo">Logo</div>
+    <div class="search">
+      <input type="text" value={term} className="search_input" placeholder="Search Your Notes" onChange={(e)=>setTerm(e.target.value)}/>
+      <button><i className="fa fa-search"></i></button>
+    </div>
+    <div class="logout">
+      Logout</div>
+  </header>
     )
 }
 
