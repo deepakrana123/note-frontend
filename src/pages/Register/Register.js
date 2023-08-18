@@ -7,29 +7,30 @@ import ErrorMessage from "../../components/ErrorMessage";
 import Loading from "../../components/Loading";
 import { useNavigate } from "react-router-dom";
 
-
 const Register = () => {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const dispatch = useDispatch();
   const [password, setPassword] = useState("");
   const [confirmpassword, setConfirmPassword] = useState("");
-  const { isLoading, error, userInfo,success } = useSelector((state)=>state.auth);
+  const { isLoading, error, userInfo, success } = useSelector(
+    (state) => state.auth
+  );
   const navigate = useNavigate();
-  console.log(userInfo,isLoading,error)
+  console.log(userInfo, isLoading, error, success);
   useEffect(() => {
-    if (success) navigate('/login')
+    if (success) navigate("/login");
     // redirect authenticated user to profile screen
     // if (user) navigate('/user-profile')
-  }, [navigate, userInfo,success]);
+  }, [navigate, userInfo, success]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if(name==null || password ==null|| email==null){
-      alert("data not filled")
+    if (name == null || password == null || email == null) {
+      alert("data not filled");
     }
     if (password !== confirmpassword) {
-      alert("password and confirmpassword doesnot match")
+      alert("password and confirmpassword doesnot match");
     } else {
       let postData = {
         name: name,
@@ -37,17 +38,22 @@ const Register = () => {
         password: password,
       };
       dispatch(registerUser(postData));
-      setEmail(" ")
-      setName(" ")
-      setPassword(" ")
-      setConfirmPassword(" ")
-      navigate("/")
+      setEmail(" ");
+      setName(" ");
+      setPassword("");
+      setConfirmPassword("");
     }
   };
   return (
     <div className="container">
       <div className="center">
-        {error && <ErrorMessage variant="danger">{error}</ErrorMessage>}
+        {error && (
+          <ErrorMessage variant="danger">
+            {error === "Request failed with status code 404"
+              ? "User Already Exist"
+              : error}
+          </ErrorMessage>
+        )}
         {isLoading && <Loading />}
         <h1>Register</h1>
         <form onSubmit={handleSubmit}>
@@ -95,7 +101,9 @@ const Register = () => {
             <span></span>
             <label>Confirm Password</label>
           </div>
-          <button type="submit" className="butSubmit" disabled={isLoading}>Submit</button>
+          <button type="submit" className="butSubmit" disabled={isLoading}>
+            Submit
+          </button>
           <div className="signup_link">
             Have an Account ? <Link to="/login">Login Here</Link>
           </div>

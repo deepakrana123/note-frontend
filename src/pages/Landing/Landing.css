@@ -23,9 +23,21 @@
   justify-content: space-evenly;
 }
 
-.landingbutton {
+
+.landingbutton{
   width: 200px;
-  height: 55px;
+  height: 50px;
+  border: 1px solid;
+  border-radius: 25px;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+
+}
+.landingbutton:hover{
+  background: #2691d9;
+  color: #e9f4fb;
+  transition: .5s;
 }
 
 @media only screen and (min-width: 1200px) {
