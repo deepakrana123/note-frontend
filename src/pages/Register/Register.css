@@ -124,7 +124,3 @@ form .txt_field{
   width: 100vw;
   height: 25vh;
 }
-button[type="submit"]:disabled{
-  cursor: not-allowed;
-
-}

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import "./CreateNote.css"
 import axios from "axios"
 import {useNavigate} from "react-router-dom";
-import {Api} from "../Api.js";
+
 const CreateNote = () => {
   const [title,setTitle]=useState("");
   const [category,setCategory]=useState("");
@@ -11,19 +11,19 @@ const CreateNote = () => {
   const navigate=useNavigate()
   const submithandler = async(e)=>{
     e.preventDefault();
-    if(!title && !category && !content){
-      alert("some description are not filled")
-    }
-    const config = {
-      headers: {
-        Authorization: `Bearer ${userInfo.token}`,
-      },
-    };
+    // if(!title && !category && !content){
+    //   alert("some description are not filled")
+    // }
+    // const config = {
+    //   headers: {
+    //     Authorization: `Bearer ${userInfo.token}`,
+    //   },
+    // };
 
-    const data = axios.post(`${Api}/note/create`,{ title , category , content } , config )
-     if(data){
-         navigate("/notes");
-     }
+    // const data = axios.post(`${Api}/note/create`,{ title , category , content } , config )
+    //  if(data){
+    //      navigate("/notes");
+    //  }
   }
   return (
     <div className="createContainer">

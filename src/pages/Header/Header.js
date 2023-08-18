@@ -19,12 +19,12 @@ const Header = () => {
   // }
     return (
     <header>
-    <div class="logo">Logo</div>
-    <div class="search">
+    <div className="logo">NoteApp</div>
+    <div className="search">
       <input type="text" value={term} className="search_input" placeholder="Search Your Notes" onChange={(e)=>setTerm(e.target.value)}/>
       <button><i className="fa fa-search"></i></button>
     </div>
-    <div class="logout">
+    <div className="logout">
       Logout</div>
   </header>
     )

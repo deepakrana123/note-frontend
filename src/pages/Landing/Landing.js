@@ -14,12 +14,12 @@ const Landing = () => {
             <p className="subtitle">One Safe place for all your notes.</p>
           </div>
           <div className="buttonContainer">
-            {/* <Link to="/login"> */}
+            <Link to="/login">
               <Button size="lg" className="landingbutton">
                 Login
               </Button>
-            {/* </Link> */}
-            {/* <Link to="/register"> */}
+            </Link>
+            <Link to="/register">
               <Button
                 variant="outline-primary"
                 size="lg"
@@ -27,7 +27,7 @@ const Landing = () => {
               >
                 Signup
               </Button>
-            {/* </Link> */}
+            </Link>
           </div>
         </div>
       </Row>
