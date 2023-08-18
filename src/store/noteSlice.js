@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-
+const API_ENDPOINT="http://localhost:2111"
 
 const initialState = {
   note: [],
@@ -9,23 +9,20 @@ const initialState = {
 }
 
 
-const API_ENDPOINT = 'YOUR_API_ENDPOINT';
-
 // Replace 'YOUR_BEARER_TOKEN' with your actual bearer token
 // const BEARER_TOKEN = 'YOUR_BEARER_TOKEN';
 
 // Async thunk to make a POST request with Bearer token
-export const createCreateAsync = createAsyncThunk(
-  'posts/createPost',
-  async (postData,BEARER_TOKEN, { rejectWithValue }) => {
+export const createNote = createAsyncThunk(
+  'note/createNote',
+  async (postData ,BEARER_TOKEN, { rejectWithValue }) => {
+    console(postData,BEARER_TOKEN)
     try {
-      const response = await axios.post(`${API_ENDPOINT}/posts`, postData, {
+      const response = await axios.post(`${API_ENDPOINT}/api/note/create`, postData, {
         headers: {
           Authorization: `Bearer ${BEARER_TOKEN}`,
-          'Content-Type': 'application/json',
         },
       });
-
       return response.data;
     } catch (error) {
       // You can handle errors and rejections here
@@ -33,25 +30,37 @@ export const createCreateAsync = createAsyncThunk(
     }
   }
 );
+// export const registerUser = createAsyncThunk(
+//   "auth/register",
+//   async (postdata, { rejectWithValue }) => {
+//     try {
+//       await axios.post(`${baseURL}/api/user/register`, postdata);
+//     } catch (error) {
+//       if (error.response && error.response.data.message) {
+//         return rejectWithValue(error.response.data.message);
+//       } else {
+//         return rejectWithValue(error.message);
+//       }
+//     }
+//   }
+// );
 
-const postsSlice = createSlice({
-  name: 'posts',
-  initialState: {
-    // Your initial state here
-  },
+const noteSlice = createSlice({
+  name: 'note',
+  initialState,
   reducers: {
     // Your other reducers here
   },
   extraReducers: (builder) => {
-    builder.addCase(createAsyncThunk.pending,(state,action)=>{
+    builder.addCase(createNote.pending,(state,action)=>{
       state.isLoading=true
     })
-    builder.addCase(createCreateAsync.fulfilled, (state, action) => {
+    builder.addCase(createNote.fulfilled, (state, action) => {
       // Handle the successful response here
       state.isLoading=false
       state.note=action.payload
     });
-    builder.addCase(createCreateAsync.rejected, (state, action) => {
+    builder.addCase(createNote.rejected, (state, action) => {
       // Handle the rejected or error case here
       state.isLoading=false;
       state.error= action.error.message
@@ -59,4 +68,4 @@ const postsSlice = createSlice({
   },
 });
 
-export default postsSlice.reducer;
+export default noteSlice.reducer;

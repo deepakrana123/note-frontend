@@ -9,6 +9,8 @@ import Sign from "./pages/Login/Sign";
 import PageNotFound from "./components/PageNotFound";
 // import MyNotes from './components/MyNotes/MyNotes';
 import CreateNote from './pages/CreateNote/CreateNote';
+import Edit from "./pages/Edit/Edit";
+import MyNotes from "./pages/MyNotes/MyNotes";
 // import Edit from './components/Edit/Edit';
 // import PageNotFound from './components/PageNotFound';
 
@@ -22,7 +24,9 @@ function App() {
         <Route exact path="/register" element={<Register/>}/>
         <Route exact path="/login" element={<Sign/>}/>
         <Route  path="/*" element={<PageNotFound/>} />
-        {/* <Route path="/create/note" element={<CreateNote/>}/> */}
+        <Route path="/create/note" element={<CreateNote/>}/>
+        <Route path="/edit/note" element={<Edit/>}/>
+        <Route path="/note" element={<MyNotes/>}/>
        </Routes>
        <Footer/>
       </Router>

@@ -3,41 +3,40 @@ import NoteCard from '../NoteCard/NoteCard';
 import axios from "axios";
 import "./MyNotes.css"
 import { Link} from 'react-router-dom';
-import {Api} from "../Api.js";
 const MyNotes = () => {
   const [notes , setNotes] =useState("");
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
  
   const  getData = async(user)=>{
-    const config = {
-      headers: {
-        Authorization: `Bearer ${user.token}`,
-      },
-    };
+    // const config = {
+    //   headers: {
+    //     Authorization: `Bearer ${user.token}`,
+    //   },
+    // };
 
-    const { data } = await axios.get(`${Api}/note`, config);
-      setNotes(data);
+    // const { data } = await axios.get(`${Api}/note`, config);
+    //   setNotes(data);
   };
   // useEffect(()=>{
-    if(userInfo){
-      getData(userInfo)
-    }
+    // if(userInfo){
+    //   getData(userInfo)
+    // }
   // },[ ]);
 
   const deleteNote = async (id) => {
-   const config = {
-      headers: {
-        Authorization: `Bearer ${userInfo.token}`,
-      },
-    };
+  //  const config = {
+  //     headers: {
+  //       Authorization: `Bearer ${userInfo.token}`,
+  //     },
+  //   };
 
-    const {data} = await axios.delete(`http://localhost:2111/api/note/${id}`,config)
-     if(data.message==="Note Removed"){
-              getData(userInfo)
-     }
-     else{
-      alert(data.message)
-     }
+  //   const {data} = await axios.delete(`http://localhost:2111/api/note/${id}`,config)
+  //    if(data.message==="Note Removed"){
+  //             getData(userInfo)
+  //    }
+  //    else{
+  //     alert(data.message)
+  //    }
   };
   
   return (
