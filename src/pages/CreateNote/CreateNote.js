@@ -21,7 +21,7 @@ const CreateNote = () => {
       content:content 
      }
      if(userToken){
-        let baseURL="http://localhost:2111"
+        let baseURL="https://note-app-61xq.onrender.com"
         try {
           const response = await axios.post(`${baseURL}/api/note/create`, notes, {
             headers: {

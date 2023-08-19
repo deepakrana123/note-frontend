@@ -4,7 +4,7 @@ import axios from "axios";
 import "./MyNotes.css"
 import { Link} from 'react-router-dom';
 import ErrorMessage from '../../components/ErrorMessage';
-const Api="http://localhost:2111"
+const Api="https://note-app-61xq.onrender.com"
 const MyNotes = () => {
   const [notes , setNotes] =useState("");
   const userToken=localStorage.getItem('userToken')

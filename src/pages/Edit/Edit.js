@@ -3,7 +3,7 @@ import "./Edit.css"
 import axios from "axios";
 import {useParams,useNavigate} from "react-router-dom";
 
-const Api="http://localhost:2111"
+const Api="https://note-app-61xq.onrender.com"
 
 const Edit = () => {
     const [title,setTitle]=useState("");

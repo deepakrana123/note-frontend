@@ -1,8 +1,8 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-// const baseURL="https://note-app-61xq.onrender.com";
-const baseURL = "http://localhost:2111";
+const baseURL="https://note-app-61xq.onrender.com";
+
 
 const userToken = localStorage.getItem("userToken")
   ? localStorage.getItem("userToken")
