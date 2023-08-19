@@ -2,30 +2,47 @@ import React, { useState } from 'react';
 import "./CreateNote.css"
 import axios from "axios"
 import {useNavigate} from "react-router-dom";
-import {useDispatch,useSelector} from "react-redux";
-import { createNote } from '../../store/authSlice';
+import {useSelector } from "react-redux";
 
 const CreateNote = () => {
   const [title,setTitle]=useState("");
   const [category,setCategory]=useState("");
   const [content,setContent]=useState("");
   const {userToken} =useSelector((state)=>state.auth)
-  const dispatch=useDispatch();
   const navigate=useNavigate()
-  console.log(userToken,"userToken")
   const submithandler = async(e)=>{
     e.preventDefault();
     if(!title && !category && !content){
       alert("some description are not filled")
     }
-     let createNotes={
+     let notes={
       title:title,
       category:category,
       content:content 
      }
      if(userToken){
-        console.log("hii")
-        dispatch(createNote(createNotes))
+        let baseURL="http://localhost:2111"
+        try {
+          const response = await axios.post(`${baseURL}/api/note/create`, notes, {
+            headers: {
+              Authorization: `Bearer ${userToken}`,
+            },
+          });
+          // return response.data;
+          console.log(response,"response")
+          if(response.status===201){
+            navigate("/note")
+          }
+          // navigate("/note")
+        } catch (error) {
+          // You can handle errors and rejections here
+          if (error.response && error.response.data.message) {
+            return error.response.data.message;
+          } else {
+            return error.message;
+          }
+        }
+        
      }
   }
   return (

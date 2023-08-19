@@ -3,7 +3,7 @@ import "./Edit.css"
 import axios from "axios";
 import {useParams,useNavigate} from "react-router-dom";
 
-
+const Api="http://localhost:2111"
 
 const Edit = () => {
     const [title,setTitle]=useState("");
@@ -11,27 +11,27 @@ const Edit = () => {
   const [content,setContent]=useState("");
   const {id}=useParams();
   const navigate=useNavigate()
-  // const userInfo=JSON.parse(localStorage.getItem("userInfo"));
+  const userToken=localStorage.getItem('userToken')
   const submithandler = async(e)=>{
-    // e.preventDefault();
-    // if(!title && !category && !content){
-    //   alert("some description are not filled")
+    e.preventDefault();
+    if(!title && !category && !content){
+      alert("some description are not filled")
 
-    // }
-    // e.preventDefault();
-    // if(!title && !category && !content){
-    //   alert("some description are not filled")
-    // }
-    // const config = {
-    //   headers: {
-    //     Authorization: `Bearer ${userInfo.token}`,
-    //   },
-    // };
+    }
+    e.preventDefault();
+    if(!title && !category && !content){
+      alert("some description are not filled")
+    }
+    const config = {
+      headers: {
+        Authorization: `Bearer ${userToken}`,
+      },
+    };
 
-    // const data=axios.put(`${Api}/${id}`,{title,category,content},config)
-    //  if(data){
-    //      navigate("/notes")
-    //  }
+    const data=axios.put(`${Api}/api/note//${id}`,{title,category,content},config)
+     if(data){
+         navigate("/notes")
+     }
   }
   return (
     <div className="editContainer">
