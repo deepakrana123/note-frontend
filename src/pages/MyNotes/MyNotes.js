@@ -24,8 +24,22 @@ const MyNotes = () => {
     }
   }
   useEffect(()=>{
-      getData()
-  },[]);
+    const  getData =async()=>{
+      try{if(userToken){
+        const config = {
+          headers: {
+            Authorization: `Bearer ${userToken}`,
+          },
+        };
+        const { data } = await axios.get(`${Api}/api/note`, config);
+        setNotes(data);
+      }}
+      catch(error){
+        setError(error)
+      }
+    }
+    getData()
+  },[userToken]);
 
   const deleteNote = async (id) => {
    const config = {
