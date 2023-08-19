@@ -14,7 +14,6 @@ const initialState = {
   userToken,
   error: null,
   success: false,
-  note:[]
 };
 
 export const registerUser = createAsyncThunk(
@@ -53,37 +52,17 @@ export const userLogin = createAsyncThunk(
     }
   }
 );
-export const createNote = createAsyncThunk(
-  'auth/createNote',
-  async (postData , { rejectWithValue }) => {
-    console(postData)
-    try {
-      const response = await axios.post(`${baseURL}/api/note/create`, postData, {
-        headers: {
-          Authorization: `Bearer ${userToken}`,
-        },
-      });
-      return response.data;
-    } catch (error) {
-      // You can handle errors and rejections here
-      if (error.response && error.response.data.message) {
-        return rejectWithValue(error.response.data.message);
-      } else {
-        return rejectWithValue(error.message);
-      }
-    }
-  }
-);
+
 
 export const authSlice = createSlice({
   name: "auth",
   initialState,
   reducers: {
-    logout:(state,action)=>{
-          localStorage.removeItem('usertoken')
-          state.user=""
-          state.userInfo=""
-    }
+    logout: (state, action) => {
+      localStorage.removeItem("usertoken");
+      state.user = "";
+      state.userInfo = "";
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(registerUser.pending, (state) => {
@@ -117,19 +96,7 @@ export const authSlice = createSlice({
       state.isLoading = false;
       state.error = action.payload;
     });
-    builder.addCase(createNote.pending,(state,action)=>{
-      state.isLoading=true
-    });
-    builder.addCase(createNote.fulfilled, (state, action) => {
-      // Handle the successful response here
-      state.isLoading=false
-      state.note=action.payload
-    });
-    builder.addCase(createNote.rejected, (state, action) => {
-      // Handle the rejected or error case here
-      state.isLoading=false;
-      state.error= action.error.message
-    });
+    
   },
 });
 

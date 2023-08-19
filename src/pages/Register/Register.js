@@ -17,7 +17,6 @@ const Register = () => {
     (state) => state.auth
   );
   const navigate = useNavigate();
-  console.log(userInfo, isLoading, error, success);
   useEffect(() => {
     if (success) navigate("/login");
     // redirect authenticated user to profile screen

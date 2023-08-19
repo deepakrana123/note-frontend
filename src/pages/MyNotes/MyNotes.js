@@ -49,7 +49,7 @@ const MyNotes = () => {
         {error && <ErrorMessage error={error}/>}
         <div className="notes">
         <h2>Notes</h2>
-        <Link to="/create">Create Note</Link>
+        <Link to="/create/note">Create Note</Link>
         </div>
         <div className="notes-container">
           {notes && notes.map((item)=>(

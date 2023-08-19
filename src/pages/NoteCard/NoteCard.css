@@ -1,106 +1,101 @@
-.noteCard{
-    background:#0f171e;
-    cursor:pointer;
-    height:420px;
-    width:350px;
-    border:2px solid  #0f171e;
+ .box {
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 340px; /* Adjust the width as needed */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    height:250px;
     transition:all  0.3s;
     border:1px solid white;
-}
-.noteCard:hover{
+    background:#0f171e;
+    cursor:pointer;
+  }
+
+.box:hover{
     transform:scale(1.1);
     transition:all 0.4s;
     
 }
-.noteInner{
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
-}
-
-.noteCard h4{
-    margin-top:10px;
-    padding:10px 20px;
+  
+  .box-header {
+    margin-top:2px;
+    /* padding:10px 20px; */
     color:rgb(9, 148, 246);
     text-transform:uppercase;
     font-size:25px;
     font-weight:bold;
     text-align: center;
-}
-.noteInner{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    margin:0px;
-}
-.noteTop {
-    margin:10px;
-    padding:10px;
-    color:snow;
-}
+  }
+  
+  .box-content {
+    flex-grow: 1; /* Allow content to grow and take available space */
+    margin: 10px 0;
+  }
 
-.noteBottom{
-    margin-top:5px;
-    margin-left:0px;
+  .box-content span{
+    color:aqua;
+  }
+  .box-content p{
+    overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color:snow;
+  }
+  
+  .box-footer {
     display: flex;
-    flex-direction:column;
+    flex-direction: column;
+    /* justify-content: space-between; */
+    /* align-items: center; */
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  .footer-left {
+    font-size: 12px;
+    margin-bottom:10px;
+  }
+  
+  .footer-right {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 3px;
+  }
+  
+  .buttonB {
+    padding: 6px 8px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    /* padding: 6px 10px;  */
+    border-radius: 5px;
+    width: 80px;
+    height:40px;
+    font-size: 18px;
+  }
+  .button8 button:hover{
+    cursor:pointer;
+    background-color:crimson;
 }
 
-.noteInfo{
-    margin-top:8px;
-    padding:0px;
-    display:flex;
-    flex-direction:row;
-}
-.noteInfo span{
+.footer-left span{
     margin-left:2px;
     color:lightpink;
     font-weight: bold;
     font-size:15px;
 }
-.noteInfo p{
+.footer-left p{
     margin-left:5px;
     font-size:15px;
     font-weight:bold;
 }
 
-.buttonInfo {
-    display:flex;
-    align-items: center;
-    margin:-14px;
-    justify-content: space-evenly;
-    padding:10px 20px;
-    /* position:fixed; */
-
-}
-
-.buttonInfo a{
-    outline:none;
-    background-color: #030804;
-    color: white;
-    padding: 8px 20px; 
-    border-radius: 5px;
-    width: 100%;
-    height:50px;
-    font-size: 18px;
-}
-
-.buttonInfo button{
-    background-color: #030804;
-    color: white;
-    padding: 8px 20px; 
-    border-radius: 5px;
-    width: 100%;
-    height:50px;
-    font-size: 18px;
-}
-
-.buttonInfo button:hover{
-    cursor:pointer;
-    background-color:crimson;
-}
-
-.buttonInfo a:hover{
-    cursor:pointer;
-    background-color:crimson;
+.button8 a{
+  outline:none;
+  text-decoration:none;
+  color:white;
 }

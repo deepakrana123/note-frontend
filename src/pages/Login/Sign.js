@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
 import { userLogin } from "../../store/authSlice";
@@ -14,19 +13,17 @@ const Sign = () => {
   const { isLoading, error, userInfo, userToken } = useSelector(
     (state) => state.auth
   );
-  const [show, setShow] = useState(false);
   const dispatch = useDispatch();
   const loginSubmit = async (e) => {
     e.preventDefault();
     if (password == null || email == null) {
       setMessage("Please fill all the deatils");
-      setShow(false);
+      alert(message)
     } else {
       let postData = {
         email: email,
         password: password,
       };
-      setShow(true);
       dispatch(userLogin(postData));
       setEmail("");
       setPassword("");
